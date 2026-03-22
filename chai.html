@@ -266,21 +266,18 @@
     <!-- card demo -->
     <div class="chai-grid chai-gap-6 chai-mb-10" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));">
 
-      <!-- card 1: spacing + color + typography -->
       <div class="chai-p-6 chai-bg-orange-500 chai-rounded-2xl chai-shadow-lg">
         <p class="chai-text-sm chai-font-semibold chai-uppercase chai-tracking-wide chai-mb-2" style="color:rgba(0,0,0,0.5);">Category</p>
         <h3 class="chai-text-2xl chai-font-bold chai-mb-3" style="color:#000;">Spacing + Color</h3>
         <p class="chai-text-base" style="color:rgba(0,0,0,0.7);">chai-p-6 · chai-bg-orange-500 · chai-rounded-2xl · chai-text-2xl</p>
       </div>
 
-      <!-- card 2: border + shadow -->
       <div class="chai-p-6 chai-rounded-2xl chai-border chai-border-2 chai-shadow-lg" style="border-color:#222;background:#0f0f0f;">
         <p class="chai-text-sm chai-font-semibold chai-uppercase chai-tracking-wide chai-mb-2" style="color:#444;">Category</p>
         <h3 class="chai-text-2xl chai-font-bold chai-mb-3 chai-text-white">Borders + Shadow</h3>
         <p class="chai-text-base" style="color:#555;">chai-border · chai-border-2 · chai-rounded-2xl · chai-shadow-lg</p>
       </div>
 
-      <!-- card 3: flex layout -->
       <div class="chai-p-6 chai-rounded-2xl" style="background:#0f0f0f;border:1px solid #1a1a1a;">
         <p class="chai-text-sm chai-font-semibold chai-uppercase chai-tracking-wide chai-mb-4" style="color:#444;">Flex Layout</p>
         <div class="chai-flex chai-gap-3 chai-mb-3">
@@ -333,7 +330,6 @@
 
     <div class="chai-grid chai-gap-4" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr));">
 
-      <!-- spacing -->
       <div style="background:#0f0f0f;border:1px solid #1a1a1a;border-radius:12px;padding:24px;">
         <div style="color:#f97316;font-size:0.7rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">Spacing</div>
         <div class="code-block" style="font-size:0.78rem;">
@@ -346,7 +342,6 @@
         </div>
       </div>
 
-      <!-- colors -->
       <div style="background:#0f0f0f;border:1px solid #1a1a1a;border-radius:12px;padding:24px;">
         <div style="color:#f97316;font-size:0.7rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">Colors</div>
         <div class="code-block" style="font-size:0.78rem;">
@@ -358,7 +353,6 @@
         </div>
       </div>
 
-      <!-- typography -->
       <div style="background:#0f0f0f;border:1px solid #1a1a1a;border-radius:12px;padding:24px;">
         <div style="color:#f97316;font-size:0.7rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">Typography</div>
         <div class="code-block" style="font-size:0.78rem;">
@@ -371,7 +365,6 @@
         </div>
       </div>
 
-      <!-- borders -->
       <div style="background:#0f0f0f;border:1px solid #1a1a1a;border-radius:12px;padding:24px;">
         <div style="color:#f97316;font-size:0.7rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">Borders & Radius</div>
         <div class="code-block" style="font-size:0.78rem;">
@@ -383,7 +376,6 @@
         </div>
       </div>
 
-      <!-- layout -->
       <div style="background:#0f0f0f;border:1px solid #1a1a1a;border-radius:12px;padding:24px;">
         <div style="color:#f97316;font-size:0.7rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">Layout</div>
         <div class="code-block" style="font-size:0.78rem;">
@@ -396,7 +388,6 @@
         </div>
       </div>
 
-      <!-- shadows -->
       <div style="background:#0f0f0f;border:1px solid #1a1a1a;border-radius:12px;padding:24px;">
         <div style="color:#f97316;font-size:0.7rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">Shadows & Effects</div>
         <div class="code-block" style="font-size:0.78rem;">
@@ -437,11 +428,17 @@
   </footer>
 
   <!-- ── Load ChaiWind ────────────────────────────────────────── -->
+  <!-- data files must come before chaiwind.js -->
+  <script src="palette.js"></script>
+  <script src="typography.js"></script>
+  <script src="spacing.js"></script>
+  <script src="borders.js"></script>
+  <script src="layout.js"></script>
+  <script src="shadows.js"></script>
   <script src="chaiwind.js"></script>
 
   <!-- ── Demo scripts ─────────────────────────────────────────── -->
   <script>
-    // ── Inject element demo (MutationObserver showcase) ──────────
     const colors = [
       "chai-bg-orange-500", "chai-bg-blue-500", "chai-bg-green-500",
       "chai-bg-pink-500",   "chai-bg-violet-500", "chai-bg-teal-500",
@@ -458,9 +455,7 @@
       const colorClass = colors[count % colors.length];
       const label = labels[count % labels.length];
       count++;
-
       const el = document.createElement("div");
-      // these chai-* classes will be processed by MutationObserver automatically
       el.className = `chai-px-4 chai-py-2 chai-rounded-lg chai-text-sm chai-font-semibold chai-cursor-pointer ${colorClass}`;
       el.textContent = label;
       el.style.color = "#000";
@@ -468,197 +463,173 @@
       zone.appendChild(el);
     }
 
-    // ── Render color palette grid ─────────────────────────────────
     const PALETTE_NAMES = [
       "slate","gray","zinc","neutral","stone",
       "red","orange","amber","yellow","lime",
       "green","emerald","teal","cyan","sky",
       "blue","indigo","violet","purple","fuchsia","pink","rose",
     ];
-
     const SHADES = [50,100,200,300,400,500,600,700,800,900,950];
-
     const grid = document.getElementById("palette-grid");
 
     PALETTE_NAMES.forEach(name => {
       const col = document.createElement("div");
-
       const label = document.createElement("p");
       label.textContent = name;
       label.style.cssText = "font-size:0.75rem;font-weight:700;text-transform:capitalize;margin-bottom:8px;color:#555;letter-spacing:0.05em;";
       col.appendChild(label);
-
       const swatchRow = document.createElement("div");
       swatchRow.style.cssText = "display:flex;gap:2px;";
-
       SHADES.forEach(shade => {
         const swatch = document.createElement("div");
-        // use chai-* class — will be processed by ChaiWind
         swatch.className = `swatch chai-bg-${name}-${shade}`;
         swatch.style.flex = "1";
         swatch.title = `${name}-${shade}`;
         swatchRow.appendChild(swatch);
       });
-
       col.appendChild(swatchRow);
       grid.appendChild(col);
     });
   </script>
-<!-- Playground Section -->
-<hr class="divider" />
 
-<section id="playground" class="chai-px-8 chai-py-20" style="max-width:1100px;margin:0 auto;">
-  <p class="section-label">playground</p>
-  <h2 class="chai-mt-3 chai-mb-3" style="font-size:2.25rem;font-weight:800;letter-spacing:-0.03em;">
-    Try it yourself
-  </h2>
-  <p class="chai-mb-10" style="color:#555;font-size:0.95rem;">
-    Type <code style="color:#f97316;background:#1a0f00;padding:2px 6px;border-radius:4px;">chai-*</code> classes and see them applied live.
-  </p>
+  <!-- ── Playground Section ───────────────────────────────────── -->
+  <hr class="divider" />
 
-  <!-- input -->
-  <div style="background:#0f0f0f;border:1px solid #1a1a1a;border-radius:12px;overflow:hidden;margin-bottom:12px;">
-    <div style="padding:8px 16px;border-bottom:1px solid #1a1a1a;display:flex;justify-content:space-between;align-items:center;">
-      <span style="font-size:11px;color:#444;letter-spacing:0.1em;text-transform:uppercase;font-family:'JetBrains Mono',monospace;">Classes</span>
-      <span id="pg-count" style="font-size:11px;color:#444;font-family:'JetBrains Mono',monospace;">0 classes</span>
+  <section id="playground" class="chai-px-8 chai-py-20" style="max-width:1100px;margin:0 auto;">
+    <p class="section-label">playground</p>
+    <h2 class="chai-mt-3 chai-mb-3" style="font-size:2.25rem;font-weight:800;letter-spacing:-0.03em;">
+      Try it yourself
+    </h2>
+    <p class="chai-mb-10" style="color:#555;font-size:0.95rem;">
+      Type <code style="color:#f97316;background:#1a0f00;padding:2px 6px;border-radius:4px;">chai-*</code> classes and see them applied live.
+    </p>
+
+    <div style="background:#0f0f0f;border:1px solid #1a1a1a;border-radius:12px;overflow:hidden;margin-bottom:12px;">
+      <div style="padding:8px 16px;border-bottom:1px solid #1a1a1a;display:flex;justify-content:space-between;align-items:center;">
+        <span style="font-size:11px;color:#444;letter-spacing:0.1em;text-transform:uppercase;font-family:'JetBrains Mono',monospace;">Classes</span>
+        <span id="pg-count" style="font-size:11px;color:#444;font-family:'JetBrains Mono',monospace;">0 classes</span>
+      </div>
+      <input id="pg-input" type="text"
+        placeholder="e.g. chai-p-4 chai-bg-red-500 chai-text-white chai-rounded-xl"
+        style="width:100%;background:transparent;border:none;outline:none;padding:12px 16px;color:#f5f5f5;font-family:'JetBrains Mono',monospace;font-size:13px;" />
     </div>
-    <input id="pg-input" type="text"
-      placeholder="e.g. chai-p-4 chai-bg-red-500 chai-text-white chai-rounded-xl"
-      style="width:100%;background:transparent;border:none;outline:none;padding:12px 16px;color:#f5f5f5;font-family:'JetBrains Mono',monospace;font-size:13px;" />
-  </div>
 
-  <!-- quick chips -->
-  <div id="pg-chips" style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;"></div>
+    <div id="pg-chips" style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;"></div>
 
-  <!-- editor + preview -->
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;">
+      <div style="background:#0f0f0f;border:1px solid #1a1a1a;border-radius:12px;overflow:hidden;">
+        <div style="padding:8px 16px;border-bottom:1px solid #1a1a1a;">
+          <span style="font-size:11px;color:#444;letter-spacing:0.1em;text-transform:uppercase;font-family:'JetBrains Mono',monospace;">Parsed styles</span>
+        </div>
+        <div id="pg-parsed" style="padding:12px 16px;min-height:160px;font-family:'JetBrains Mono',monospace;font-size:12px;">
+          <span style="color:#333;">Type classes above...</span>
+        </div>
+      </div>
+      <div style="background:#0f0f0f;border:1px solid #1a1a1a;border-radius:12px;overflow:hidden;">
+        <div style="padding:8px 16px;border-bottom:1px solid #1a1a1a;">
+          <span style="font-size:11px;color:#444;letter-spacing:0.1em;text-transform:uppercase;font-family:'JetBrains Mono',monospace;">Live preview</span>
+        </div>
+        <div style="min-height:160px;display:flex;align-items:center;justify-content:center;padding:24px;background:#e5e7eb;border-radius:0 0 12px 12px;">
+          <div id="pg-preview" style="transition:all 0.2s ease;font-family:'Syne',sans-serif;">Hello, ChaiWind!</div>
+        </div>
+      </div>
+    </div>
 
     <div style="background:#0f0f0f;border:1px solid #1a1a1a;border-radius:12px;overflow:hidden;">
       <div style="padding:8px 16px;border-bottom:1px solid #1a1a1a;">
-        <span style="font-size:11px;color:#444;letter-spacing:0.1em;text-transform:uppercase;font-family:'JetBrains Mono',monospace;">Parsed styles</span>
+        <span style="font-size:11px;color:#444;letter-spacing:0.1em;text-transform:uppercase;font-family:'JetBrains Mono',monospace;">Class breakdown</span>
       </div>
-      <div id="pg-parsed" style="padding:12px 16px;min-height:160px;font-family:'JetBrains Mono',monospace;font-size:12px;">
-        <span style="color:#333;">Type classes above...</span>
-      </div>
+      <div id="pg-breakdown" style="padding:12px 16px;display:flex;flex-wrap:wrap;gap:6px;min-height:44px;"></div>
     </div>
+  </section>
 
-    <div style="background:#0f0f0f;border:1px solid #1a1a1a;border-radius:12px;overflow:hidden;">
-      <div style="padding:8px 16px;border-bottom:1px solid #1a1a1a;">
-        <span style="font-size:11px;color:#444;letter-spacing:0.1em;text-transform:uppercase;font-family:'JetBrains Mono',monospace;">Live preview</span>
-      </div>
-      <div style="min-height:160px;display:flex;align-items:center;justify-content:center;padding:24px;background:#e5e7eb;border-radius:0 0 12px 12px;">
-        <div id="pg-preview" style="transition:all 0.2s ease;font-family:'Syne',sans-serif;">Hello, ChaiWind!</div>
-      </div>
-    </div>
+  <script>
+  (function(){
+    const EXAMPLES = [
+      "chai-p-4 chai-bg-orange-500 chai-text-white chai-rounded-xl",
+      "chai-px-6 chai-py-3 chai-bg-blue-600 chai-text-white chai-rounded-full chai-font-bold chai-shadow-lg",
+      "chai-text-4xl chai-font-extrabold chai-text-pink-500 chai-tracking-tight",
+      "chai-p-4 chai-bg-emerald-100 chai-text-emerald-800 chai-rounded-lg chai-border chai-border-emerald-300",
+      "chai-p-3 chai-bg-amber-400 chai-text-amber-900 chai-font-semibold chai-uppercase chai-text-sm",
+      "chai-opacity-80 chai-bg-rose-500 chai-p-4 chai-rounded-lg chai-text-white chai-shadow-md",
+    ];
 
-  </div>
+    const CAT_COLORS = {
+      color:      { bg:"#1a0f00", text:"#f97316" },
+      spacing:    { bg:"#0f1a0f", text:"#86efac" },
+      typography: { bg:"#1a0a1a", text:"#e879f9" },
+      border:     { bg:"#1a1400", text:"#fcd34d" },
+      layout:     { bg:"#0a0f1a", text:"#93c5fd" },
+      shadow:     { bg:"#1a0f0f", text:"#fca5a5" },
+      unknown:    { bg:"#1a1a1a", text:"#444"    },
+    };
 
-  <!-- breakdown -->
-  <div style="background:#0f0f0f;border:1px solid #1a1a1a;border-radius:12px;overflow:hidden;">
-    <div style="padding:8px 16px;border-bottom:1px solid #1a1a1a;">
-      <span style="font-size:11px;color:#444;letter-spacing:0.1em;text-transform:uppercase;font-family:'JetBrains Mono',monospace;">Class breakdown</span>
-    </div>
-    <div id="pg-breakdown" style="padding:12px 16px;display:flex;flex-wrap:wrap;gap:6px;min-height:44px;"></div>
-  </div>
-</section>
-<script>
-(function(){
-  const EXAMPLES = [
-    "chai-p-4 chai-bg-orange-500 chai-text-white chai-rounded-xl",
-    "chai-px-6 chai-py-3 chai-bg-blue-600 chai-text-white chai-rounded-full chai-font-bold chai-shadow-lg",
-    "chai-text-4xl chai-font-extrabold chai-text-pink-500 chai-tracking-tight",
-    "chai-p-4 chai-bg-emerald-100 chai-text-emerald-800 chai-rounded-lg chai-border chai-border-emerald-300",
-    "chai-p-3 chai-bg-amber-400 chai-text-amber-900 chai-font-semibold chai-uppercase chai-text-sm",
-    "chai-opacity-80 chai-bg-rose-500 chai-p-4 chai-rounded-lg chai-text-white chai-shadow-md",
-  ];
-
-  const CAT_COLORS = {
-    color:      { bg:"#1a0f00", text:"#f97316" },
-    spacing:    { bg:"#0f1a0f", text:"#86efac" },
-    typography: { bg:"#1a0a1a", text:"#e879f9" },
-    border:     { bg:"#1a1400", text:"#fcd34d" },
-    layout:     { bg:"#0a0f1a", text:"#93c5fd" },
-    shadow:     { bg:"#1a0f0f", text:"#fca5a5" },
-    unknown:    { bg:"#1a1a1a", text:"#444"    },
-  };
-
-  function getCategory(c) {
-    if(!window.ChaiWind) return "unknown";
-    const p = window.ChaiWind.parse(c);
-    if(!p || !Object.keys(p).length) return "unknown";
-    const k = Object.keys(p)[0];
-    if(["backgroundColor","color"].includes(k))              return "color";
-    if(["padding","margin","paddingTop","marginTop","paddingLeft","marginLeft","paddingRight","marginRight","paddingBottom","marginBottom"].some(x=>k.startsWith(x.slice(0,5)))) return "spacing";
-    if(["fontSize","fontWeight","textAlign","fontStyle","textTransform","textDecoration","lineHeight","letterSpacing"].includes(k)) return "typography";
-    if(["borderWidth","borderStyle","borderColor","borderRadius","borderTop","borderBottom","borderLeft","borderRight"].some(x=>k.startsWith(x.slice(0,6)))) return "border";
-    if(["display","flex","justify","align","grid","width","height","position","top","bottom","left","right","overflow","gap","zIndex"].some(x=>k.toLowerCase().startsWith(x.toLowerCase()))) return "layout";
-    if(["boxShadow","opacity","visibility","cursor","userSelect","pointerEvents"].includes(k)) return "shadow";
-    return "unknown";
-  }
-
-  // chips
-  const chipsEl = document.getElementById("pg-chips");
-  EXAMPLES.forEach(ex => {
-    const btn = document.createElement("button");
-    const parts = ex.split(" ");
-    btn.textContent = parts[0] + (parts.length > 1 ? ` +${parts.length-1}` : "");
-    btn.title = ex;
-    btn.style.cssText = "background:#111;border:1px solid #222;color:#666;padding:4px 12px;border-radius:20px;font-size:11px;cursor:pointer;font-family:'JetBrains Mono',monospace;transition:all 0.15s;";
-    btn.onmouseenter = () => { btn.style.borderColor="#f97316"; btn.style.color="#f97316"; };
-    btn.onmouseleave = () => { btn.style.borderColor="#222"; btn.style.color="#666"; };
-    btn.onclick = () => { document.getElementById("pg-input").value = ex; update(); };
-    chipsEl.appendChild(btn);
-  });
-
-  function update() {
-    const raw = document.getElementById("pg-input").value.trim();
-    const classes = raw.split(/\s+/).filter(c => c.startsWith("chai-"));
-
-    document.getElementById("pg-count").textContent = `${classes.length} class${classes.length !== 1 ? "es" : ""}`;
-
-    const preview = document.getElementById("pg-preview");
-    const parsedEl = document.getElementById("pg-parsed");
-    const breakdownEl = document.getElementById("pg-breakdown");
-
-    // reset preview
-    preview.removeAttribute("style");
-    preview.style.transition = "all 0.2s ease";
-    preview.style.fontFamily = "'Syne', sans-serif";
-
-    if(!classes.length) {
-      parsedEl.innerHTML = '<span style="color:#333;">Type classes above...</span>';
-      breakdownEl.innerHTML = '';
-      return;
+    function getCategory(c) {
+      if(!window.ChaiWind) return "unknown";
+      const p = window.ChaiWind.parse(c);
+      if(!p || !Object.keys(p).length) return "unknown";
+      const k = Object.keys(p)[0];
+      if(["backgroundColor","color"].includes(k)) return "color";
+      if(["padding","margin","paddingTop","marginTop","paddingLeft","marginLeft","paddingRight","marginRight","paddingBottom","marginBottom"].some(x=>k.startsWith(x.slice(0,5)))) return "spacing";
+      if(["fontSize","fontWeight","textAlign","fontStyle","textTransform","textDecoration","lineHeight","letterSpacing"].includes(k)) return "typography";
+      if(["borderWidth","borderStyle","borderColor","borderRadius","borderTop","borderBottom","borderLeft","borderRight"].some(x=>k.startsWith(x.slice(0,6)))) return "border";
+      if(["display","flex","justify","align","grid","width","height","position","top","bottom","left","right","overflow","gap","zIndex"].some(x=>k.toLowerCase().startsWith(x.toLowerCase()))) return "layout";
+      if(["boxShadow","opacity","visibility","cursor","userSelect","pointerEvents"].includes(k)) return "shadow";
+      return "unknown";
     }
 
-    // apply styles via ChaiWind
-    if(window.ChaiWind) {
-      const allStyles = classes.reduce((acc, c) => ({...acc, ...window.ChaiWind.parse(c)}), {});
-      Object.entries(allStyles).forEach(([k,v]) => { preview.style[k] = v; });
+    const chipsEl = document.getElementById("pg-chips");
+    EXAMPLES.forEach(ex => {
+      const btn = document.createElement("button");
+      const parts = ex.split(" ");
+      btn.textContent = parts[0] + (parts.length > 1 ? ` +${parts.length-1}` : "");
+      btn.title = ex;
+      btn.style.cssText = "background:#111;border:1px solid #222;color:#666;padding:4px 12px;border-radius:20px;font-size:11px;cursor:pointer;font-family:'JetBrains Mono',monospace;transition:all 0.15s;";
+      btn.onmouseenter = () => { btn.style.borderColor="#f97316"; btn.style.color="#f97316"; };
+      btn.onmouseleave = () => { btn.style.borderColor="#222"; btn.style.color="#666"; };
+      btn.onclick = () => { document.getElementById("pg-input").value = ex; update(); };
+      chipsEl.appendChild(btn);
+    });
 
-      // parsed output
-      if(!Object.keys(allStyles).length) {
-        parsedEl.innerHTML = '<span style="color:#ef4444;">No styles resolved — check class names</span>';
-      } else {
-        parsedEl.innerHTML = Object.entries(allStyles).map(([k,v]) =>
-          `<div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #111;">
-            <span style="color:#555;">${k}</span>
-            <span style="color:#f5f5f5;">${v}</span>
-          </div>`
-        ).join("");
+    function update() {
+      const raw = document.getElementById("pg-input").value.trim();
+      const classes = raw.split(/\s+/).filter(c => c.startsWith("chai-"));
+      document.getElementById("pg-count").textContent = `${classes.length} class${classes.length !== 1 ? "es" : ""}`;
+      const preview = document.getElementById("pg-preview");
+      const parsedEl = document.getElementById("pg-parsed");
+      const breakdownEl = document.getElementById("pg-breakdown");
+      preview.removeAttribute("style");
+      preview.style.transition = "all 0.2s ease";
+      preview.style.fontFamily = "'Syne', sans-serif";
+      if(!classes.length) {
+        parsedEl.innerHTML = '<span style="color:#333;">Type classes above...</span>';
+        breakdownEl.innerHTML = '';
+        return;
       }
-
-      // breakdown tags
-      breakdownEl.innerHTML = classes.map(c => {
-        const cat = getCategory(c);
-        const col = CAT_COLORS[cat];
-        return `<span title="${cat}" style="display:inline-block;padding:3px 10px;border-radius:20px;font-size:11px;font-family:'JetBrains Mono',monospace;background:${col.bg};color:${col.text};border:1px solid ${col.text}22;">${c}</span>`;
-      }).join("");
+      if(window.ChaiWind) {
+        const allStyles = classes.reduce((acc, c) => ({...acc, ...window.ChaiWind.parse(c)}), {});
+        Object.entries(allStyles).forEach(([k,v]) => { preview.style[k] = v; });
+        if(!Object.keys(allStyles).length) {
+          parsedEl.innerHTML = '<span style="color:#ef4444;">No styles resolved — check class names</span>';
+        } else {
+          parsedEl.innerHTML = Object.entries(allStyles).map(([k,v]) =>
+            `<div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #111;">
+              <span style="color:#555;">${k}</span>
+              <span style="color:#f5f5f5;">${v}</span>
+            </div>`
+          ).join("");
+        }
+        breakdownEl.innerHTML = classes.map(c => {
+          const cat = getCategory(c);
+          const col = CAT_COLORS[cat];
+          return `<span title="${cat}" style="display:inline-block;padding:3px 10px;border-radius:20px;font-size:11px;font-family:'JetBrains Mono',monospace;background:${col.bg};color:${col.text};border:1px solid ${col.text}22;">${c}</span>`;
+        }).join("");
+      }
     }
-  }
 
-  document.getElementById("pg-input").addEventListener("input", update);
-})();
-</script>
+    document.getElementById("pg-input").addEventListener("input", update);
+  })();
+  </script>
+
 </body>
 </html>
