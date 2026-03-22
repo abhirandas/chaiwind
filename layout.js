@@ -1,7 +1,3 @@
-// ─────────────────────────────────────────
-//  ChaiWind — layout.js
-//  Load this BEFORE chaiwind.js
-// ─────────────────────────────────────────
 
 window.ChaiLayout = {
 
@@ -84,7 +80,6 @@ window.ChaiLayout = {
     "chai-max-h-screen":      { maxHeight: "100vh" },
   },
 
-  // handlers receive raw suffix — toRem is called inside each one
   DYNAMIC: [
     ["chai-gap-x-",    (n) => { const v = `${parseFloat(n)*0.25}rem`; return isNaN(parseFloat(n)) ? null : { columnGap: v }; }],
     ["chai-gap-y-",    (n) => { const v = `${parseFloat(n)*0.25}rem`; return isNaN(parseFloat(n)) ? null : { rowGap: v }; }],

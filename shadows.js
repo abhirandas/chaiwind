@@ -1,7 +1,3 @@
-// ─────────────────────────────────────────
-//  ChaiWind — shadows.js
-//  Load this BEFORE chaiwind.js
-// ─────────────────────────────────────────
 
 window.ChaiShadows = {
 

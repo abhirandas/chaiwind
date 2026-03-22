@@ -1,7 +1,4 @@
-// ─────────────────────────────────────────
-//  ChaiWind — typography.js
-//  Load this BEFORE chaiwind.js
-// ─────────────────────────────────────────
+
 
 window.ChaiTypography = {
 

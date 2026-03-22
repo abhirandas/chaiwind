@@ -1,7 +1,3 @@
-// ─────────────────────────────────────────
-//  ChaiWind — borders.js
-//  Load this BEFORE chaiwind.js
-// ─────────────────────────────────────────
 
 window.ChaiBorders = {
 

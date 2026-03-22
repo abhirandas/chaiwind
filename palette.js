@@ -1,7 +1,4 @@
-// ─────────────────────────────────────────
-//  ChaiWind — palette.js
-//  Load this BEFORE chaiwind.js
-// ─────────────────────────────────────────
+
 
 window.ChaiPalette = {
   white:   { DEFAULT: "#ffffff" },

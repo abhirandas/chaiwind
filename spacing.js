@@ -1,7 +1,4 @@
-// ─────────────────────────────────────────
-//  ChaiWind — spacing.js
-//  Load this BEFORE chaiwind.js
-// ─────────────────────────────────────────
+
 
 window.ChaiSpacing = {
 

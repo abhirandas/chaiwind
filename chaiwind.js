@@ -1,16 +1,3 @@
-/*!
- * ChaiWind v1.0.0
- * ─────────────────────────────────────────────────────────────
- * Load order in HTML:
- *   <script src="palette.js"></script>
- *   <script src="typography.js"></script>
- *   <script src="spacing.js"></script>
- *   <script src="borders.js"></script>
- *   <script src="layout.js"></script>
- *   <script src="shadows.js"></script>
- *   <script src="chaiwind.js"></script>  ← always last
- * ─────────────────────────────────────────────────────────────
- */
 
 (function (global) {
   "use strict";
@@ -305,9 +292,6 @@
     observeDOM();
   }
 
-  // ============================================================
-  // BOOT
-  // ============================================================
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", init);
