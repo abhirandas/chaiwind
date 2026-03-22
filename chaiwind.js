@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 
 (function (global) {
   "use strict";
@@ -311,7 +311,7 @@
   if (typeof module !== "undefined" && module.exports) module.exports = ChaiWind;
   global.ChaiWind = ChaiWind;
 
-=======
+
 /*!
  * ChaiWind v1.0.0
  * A lightweight utility-first CSS engine
@@ -1021,6 +1021,5 @@ const BOX_SHADOWS = {
 
   // ES Module default export via global
   global.ChaiWind = ChaiWind;
-
->>>>>>> ab31a41ad2d9a41f0fcba7c8ebb626b8632feb17
 }(typeof globalThis !== "undefined" ? globalThis : typeof window !== "undefined" ? window : this));
+})
